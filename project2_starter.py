@@ -61,9 +61,14 @@ class Character:
     
     def __init__(self, name, health, strength, magic):
         """Initialize basic character attributes"""
+        self.name = name
+        self.health = health
+        self.strength = strength
+        self.magic = magic
+        #Set basic character attributes
         # TODO: Set the character's name, health, strength, and magic
         # These should be stored as instance variables
-        pass
+        
         
     def attack(self, target):
         """
@@ -73,28 +78,45 @@ class Character:
         2. Apply damage to the target
         3. Print what happened
         """
+        self.target = target
+        damage = (self.strength * 2)
+        target.take_damage(damage)
+        print(f"{self.name} attacks {target.name} for {damage} damage!")
+        print(f"{target.name} has {target.health} health remaining!.")
+
+        #Gives basic attack Functions
         # TODO: Implement basic attack
         # Damage should be based on self.strength
         # Use target.take_damage(damage) to apply damage
-        pass
+        
         
     def take_damage(self, damage):
         """
         Reduces this character's health by the damage amount.
         Health should never go below 0.
         """
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+        #How damage works
         # TODO: Implement taking damage
         # Reduce self.health by damage amount
         # Make sure health doesn't go below 0
-        pass
+        
         
     def display_stats(self):
         """
         Prints the character's current stats in a nice format.
         """
+        print(f"CURRENT STATS")
+        print("=" * 10)
+        print(f"Name: {self.name}")
+        print(f"Current Health: {self.health}")
+        print(f"Strength: {self.strength}")
+        print(f"Mana: {self.magic}")
+        #Display character stats
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
-        pass
 
 class Player(Character):
     """
