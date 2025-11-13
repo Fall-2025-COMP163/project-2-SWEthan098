@@ -282,8 +282,6 @@ class Rogue(Player):
         print(f"{self.name} performs a Sneak Attack on {target.name} for {damage} damage!")
         #Gives rogue sneak attack function and how the damage is calculated 
         # TODO: Implement sneak attack
-        # Should always do critical damage
-
 class Weapon:
     """
     Weapon class to demonstrate composition.
@@ -294,15 +292,20 @@ class Weapon:
         """
         Create a weapon with a name and damage bonus.
         """
+        self.name = name
+        self.damage_bonus = damage_bonus
+        #Stores weapon name and damage bonus
         # TODO: Store weapon name and damage bonus
-        pass
+        
         
     def display_info(self):
         """
         Display information about this weapon.
         """
+        print(f"Weapon: {self.name}")
+        print(f"Damage Bonus: {self.damage_bonus}")
+        #Prints weapon name and damage bonus
         # TODO: Print weapon name and damage bonus
-        pass
 
 # ============================================================================
 # MAIN PROGRAM FOR TESTING (YOU CAN MODIFY THIS FOR TESTING)
