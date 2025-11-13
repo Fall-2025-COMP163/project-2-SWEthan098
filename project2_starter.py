@@ -163,27 +163,39 @@ class Warrior(Player):
         Create a warrior with appropriate stats.
         Warriors should have: high health, high strength, low magic
         """
+        super().__init__(name, "Warrior", 120, 15, 5)
+        self.character_class = "Warrior"
+        #Calls from Player, and adds the fighter class with base stats
         # TODO: Call super().__init__() with warrior-appropriate stats
         # Suggested stats: health=120, strength=15, magic=5
-        pass
+        
         
     def attack(self, target):
         """
         Override the basic attack to make it warrior-specific.
         Warriors should do extra physical damage.
         """
+        damage = self.strength * 2 + 5
+        target.take_damage(damage)
+        print(f"{self.name} attacks {target.name} for {damage} damage!")
+        print(f"{target.name} has {target.health} health remaining!")
+
+        #Gives warrior attack functions
         # TODO: Implement warrior attack
         # Should do more damage than basic attack
         # Maybe strength + 5 bonus damage?
-        pass
+        
         
     def power_strike(self, target):
         """
         Special warrior ability - a powerful attack that does extra damage.
         """
+        damage = (self.strength * 2) + 10
+        target.take_damage(damage)
+        print(f"{self.name} uses Power Strike on {target.name} for {damage} damage!")
+        #Gives warrior power strike function and how the damage is calculated 
         # TODO: Implement power strike
         # Should do significantly more damage than regular attack
-        pass
 
 class Mage(Player):
     """
