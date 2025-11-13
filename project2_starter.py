@@ -251,27 +251,38 @@ class Rogue(Player):
         Create a rogue with appropriate stats.
         Rogues should have: medium health, medium strength, medium magic
         """
+        super().__init__(name,"Rogue", 90, 12, 10)
+        self.character_class = "Rogue"
+        #Calls from Player, and adds the rogue class with base stats
         # TODO: Call super().__init__() with rogue-appropriate stats
         # Suggested stats: health=90, strength=12, magic=10
-        pass
+        
         
     def attack(self, target):
         """
         Override the basic attack to make it rogue-specific.
         Rogues should have a chance for extra damage (critical hits).
         """
+        damage = self.strength
+        target.take_damage(damage)
+        print(f"{self.name} attacks {target.name} for {damage} damage!")
+        print(f"{target.name} has {target.health} health remaining!.")
+        #Gives rogue attack functions
         # TODO: Implement rogue attack
         # Could add a chance for critical hit (double damage)
         # Hint: use random.randint(1, 10) and if result <= 3, it's a crit
-        pass
+        
         
     def sneak_attack(self, target):
         """
         Special rogue ability - guaranteed critical hit.
         """
+        damage = (self.strength * 2) + 15
+        target.take_damage(damage)
+        print(f"{self.name} performs a Sneak Attack on {target.name} for {damage} damage!")
+        #Gives rogue sneak attack function and how the damage is calculated 
         # TODO: Implement sneak attack
         # Should always do critical damage
-        pass
 
 class Weapon:
     """
