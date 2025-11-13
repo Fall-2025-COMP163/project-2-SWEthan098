@@ -208,26 +208,37 @@ class Mage(Player):
         Create a mage with appropriate stats.
         Mages should have: low health, low strength, high magic
         """
+        super().__init__(name,"Mage", 80, 8, 20)
+        self.character_class = "Mage"
+        #Calls from Player, and adds the mage class with base stats
         # TODO: Call super().__init__() with mage-appropriate stats
         # Suggested stats: health=80, strength=8, magic=20
-        pass
+        
         
     def attack(self, target):
         """
         Override the basic attack to make it magic-based.
         Mages should use magic for damage instead of strength.
         """
+        damage = self.magic * 2
+        target.take_damage(damage)
+        print(f"{self.name} casts a spell on {target.name} for {damage} damage!")
+        print(f"{target.name} has {target.health} health remaining!")
+        #Gives mage attack functions
         # TODO: Implement mage attack
         # Should use self.magic for damage calculation instead of strength
-        pass
+        
         
     def fireball(self, target):
         """
         Special mage ability - a powerful magical attack.
         """
+        damage = (self.magic * 2) + 10
+        target.take_damage(damage)
+        print(f"{self.name} casts Fireball on {target.name} for {damage} damage!")
+        #Gives mage fireball function and how the damage is calculated 
         # TODO: Implement fireball spell
         # Should do magic-based damage with bonus
-        pass
 
 class Rogue(Player):
     """
